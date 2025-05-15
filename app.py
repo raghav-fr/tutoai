@@ -12,9 +12,6 @@ from firebase_admin import credentials, firestore
 app = Flask(__name__)
 CORS(app)
 
-# Grammar tool setup
-tool = language_tool_python.LanguageTool('en-US')
-
 # Gemini setup
 genai.configure(api_key="AIzaSyDC2603M6IyhlYlGirpom8DpDFSlzyw5Hk")  # Replace with your Gemini API Key
 model = genai.GenerativeModel(model_name="gemini-2.0-flash")
