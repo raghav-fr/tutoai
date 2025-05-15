@@ -1,0 +1,5 @@
+flask
+flask-cors
+language-tool-python
+firebase-admin
+google-generativeai
