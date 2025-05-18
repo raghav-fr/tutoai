@@ -98,8 +98,9 @@ def get_summary():
     message = data.get('message')
 
     response = model.generate_content("{message} get me the summary of the conversation in 2 to 3 sentences ")
+    response = str(response)
 
-    if !response.isEmpty():
+    if response:
         return jsonify({"summary": response})
     else:
         return jsonify({"error": "Conversation not found"}), 404
