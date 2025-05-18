@@ -99,7 +99,7 @@ def get_summary():
 
     response = model.generate_content("{message} get me the summary of the conversation in 2 to 3 sentences ")
 
-    if doc.exists:
+    if !response.isEmpty():
         return jsonify({"summary": response})
     else:
         return jsonify({"error": "Conversation not found"}), 404
