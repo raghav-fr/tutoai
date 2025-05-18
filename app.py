@@ -92,6 +92,20 @@ def get_conversation():
     else:
         return jsonify({"error": "Conversation not found"}), 404
 
+@app.route('/get_summary', methods=['POST'])
+def get_conversation():
+    data = request.json
+    message = data.get('message')
+
+    response = client.models.generate_content(
+    model="gemini-2.0-flash",
+    contents="{message} get me the summary of the conversation in 2 to 3 sentences ",
+)
+
+    if doc.exists:
+        return jsonify({"summary": response})
+    else:
+        return jsonify({"error": "Conversation not found"}), 404
 # ---------------------- MAIN -----------------------
 
 if __name__ == '__main__':
