@@ -93,7 +93,7 @@ def get_conversation():
         return jsonify({"error": "Conversation not found"}), 404
 
 @app.route('/get_summary', methods=['POST'])
-def get_conversation():
+def get_summary():
     data = request.json
     message = data.get('message')
 
