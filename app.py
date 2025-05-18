@@ -16,8 +16,6 @@ CORS(app)
 genai.configure(api_key="AIzaSyDC2603M6IyhlYlGirpom8DpDFSlzyw5Hk")  # Replace with your Gemini API Key
 model = genai.GenerativeModel(model_name="gemini-2.0-flash")
 
-client = genai.Client(api_key="AIzaSyDC2603M6IyhlYlGirpom8DpDFSlzyw5Hk")
-
 # Firebase setup
 cred = credentials.Certificate("firebase_service_account.json")
 firebase_admin.initialize_app(cred)
@@ -99,10 +97,7 @@ def get_summary():
     data = request.json
     message = data.get('message')
 
-    response = client.models.generate_content(
-    model="gemini-2.0-flash",
-    contents="{message} get me the summary of the conversation in 2 to 3 sentences ",
-)
+    response = models.generate_content("{message} get me the summary of the conversation in 2 to 3 sentences ")
 
     if doc.exists:
         return jsonify({"summary": response})
