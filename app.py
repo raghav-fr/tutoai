@@ -97,7 +97,7 @@ def get_summary():
     data = request.json
     message = data.get('message')
 
-    response = model.generate_content("{message} get me the summary of the conversation in 2 to 3 sentences ")
+    response = model.generate_content(f"{message} get me the summary of the conversation in 2 to 3 sentences ")
     response = response.text
 
     if response:
