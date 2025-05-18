@@ -5,6 +5,7 @@ from flask_cors import CORS
 import google.generativeai as genai
 import firebase_admin
 from firebase_admin import credentials, firestore
+from google import genai as gen
 
 # --------------------- CONFIGURATION ---------------------
 
@@ -15,6 +16,8 @@ CORS(app)
 # Gemini setup
 genai.configure(api_key="AIzaSyDC2603M6IyhlYlGirpom8DpDFSlzyw5Hk")  # Replace with your Gemini API Key
 model = genai.GenerativeModel(model_name="gemini-2.0-flash")
+
+client = gen.Client(api_key="AIzaSyDC2603M6IyhlYlGirpom8DpDFSlzyw5Hk")
 
 # Firebase setup
 cred = credentials.Certificate("firebase_service_account.json")
